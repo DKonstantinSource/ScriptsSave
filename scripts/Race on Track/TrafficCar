@@ -1,0 +1,21 @@
+using UnityEngine;
+
+public class TrafficCar : MonoBehaviour
+{
+    private float speed;
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    void Update()
+    {
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
+
+        if (transform.position.z < -20f)
+        {
+            Destroy(gameObject);
+        }
+    }
+}
